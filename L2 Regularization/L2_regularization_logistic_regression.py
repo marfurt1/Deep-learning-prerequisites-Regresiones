@@ -54,7 +54,7 @@ for i in range(1000):
 
     #finding weight using gradient descent
     #for now we are doing it in the for loop later simple use numpy to X.T.dot(T-Y) it's much faster than a python for loop also it will calculate it all at once
-    #Regularization component is [ (Lambda constant = 0.1)*weight which is w here ]
+    #Regularization component is [ (Lambda constant = 0.1 = l2 penalty)*weight which is w here ]
     #since ith weight in the left side depends on the ith weight on the right side we can do it in the vector form
     #during gradient descent it has a tendency to find the weight [0,infinity,infinity] which cannot be calculated by a computer that's why we are doing
     #regularization to prevent over fitting and to prevent gradient descent from setting the higher number weights
