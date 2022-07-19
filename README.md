@@ -64,6 +64,25 @@ So that's how you can solve the donut problem
 '''
 ```
 
-### XOR problem
+### XOR problem :
 ![](util_pictures_for_explaination_README/Logistic_regression_XOr_problem.png)
 #### Here you can see that there are 4 data points 2 are from class yellow and 2 are from class purple. So the trouble using logistic regression here is that you can't really find the line that will give you a perfect classification
+#### REASON WHY LOGISTIC REGRESSION ISN'T APPLICABLE IN THIS XOR CASE ->
+Here you can see that there are 4 data points 2 are from class yellow and 2 are from class purple.
+So the trouble using logistic regression here is that you can't really find the line that will give you a perfect classification
+#### TRICK TO SOLVE XOR PROBLEM VIA LOGISTIC REGRESSION ->
+So the Trick is with the XOr problem is we're again going to add another dimension to our input
+So We are going to turn it into a 3D peoblem instead of a 2D problem and then we can draw a plane between the two datasets
+--> If we multiply the x and y to a new variable we can make the data linearly separable
+```
+xy = np.matrix(X[:,0]*X[:,1]).T
+#Now then I do my concatenation the ones and the xy npArray and It's all togeather
+#axis=1 -> adding ones npArray, xy npArray and X npArray by column
+Xb = np.array(np.concatenate((ones,xy,X), axis=1))
+
+'''
+The rest of the code will be the same
+'''
+```
+### These past two example bring out a really interesting point ->
+#### You saw that we could apply the logistic regression to some compex problems by manual feature engineering. So we looked at the data and we determine some features that we could calculate the inputs that would help us improve our classification. Now in machine learning ideally the machine would be able to learn these things and so that is precisely what neural networks do. So in the future we will apply these problems and implement a neural networks that will automatically learn the features like this
