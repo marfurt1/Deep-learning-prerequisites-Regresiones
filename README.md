@@ -3,4 +3,4 @@
 
 ## Donut problem
 ![](util_pictures_for_explaination_README/donut_problem.png)
-#### So Linear regression might not be good for this donut problem because there is no line that can separate the two dataset here in this case I's the Yellow and the Red data point sets
+#### So Linear regression might not be good for this donut problem because there is no line that can separate the two dataset here in this case I's the Yellow and the Purple data point sets
