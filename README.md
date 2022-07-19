@@ -94,5 +94,5 @@ The rest of the code will be the same
 ![](util_pictures_for_explaination_README/gradient_descent_2.jpg)
 ### Note->
 Logistic function = Sigmoid funtion
-The Sigmoid funtion graph is shown as below ->
+#### The Sigmoid funtion graph is shown as below ->
 ![](util_pictures_for_explaination_README/sigmoid_funtion_graph.png)
