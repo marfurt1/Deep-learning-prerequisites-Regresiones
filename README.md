@@ -86,3 +86,9 @@ The rest of the code will be the same
 ```
 ### These past two example bring out a really interesting point ->
 #### You saw that we could apply the logistic regression to some compex problems by manual feature engineering. So we looked at the data and we determine some features that we could calculate the inputs that would help us improve our classification. Now in machine learning ideally the machine would be able to learn these things and so that is precisely what neural networks do. So in the future we will apply these problems and implement a neural networks that will automatically learn the features like this
+
+## Gradient Descent :
+#### Final output after applying gradient descent to find weights for the logistic regression function instead of randomly selecting weights
+![](util_pictures_for_explaination_README/gradient_descent_1.png)
+#### This is the graph that helps you visualize how a gradient descent is done
+![](util_pictures_for_explaination_README/gradient_descent_2.png)
