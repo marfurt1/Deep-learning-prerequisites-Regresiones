@@ -91,4 +91,4 @@ The rest of the code will be the same
 #### Final output after applying gradient descent to find weights for the logistic regression function instead of randomly selecting weights
 ![](util_pictures_for_explaination_README/gradient_descent_1.png)
 #### This is the graph that helps you visualize how a gradient descent is done
-![](util_pictures_for_explaination_README/gradient_descent_2.png)
+![](util_pictures_for_explaination_README/gradient_descent_2.jpg)
