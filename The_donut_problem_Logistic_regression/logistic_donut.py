@@ -44,3 +44,83 @@ T = np.array([0]*(int(N/2)) +[1]*(int(N/2))) #Targets
 #X[:,1] selecting all the rows in the x matrix and selecting the 1st column in the X matrix
 plt.scatter(X[:,0], X[:,1], c=T)
 plt.show()
+
+# create a comlumn of 1s for the biased term
+ones = np.array([[1]*N]).T
+
+'''
+TRICK OF THE DONUT PROBLEM:
+       The trick with the donut problem is -> We are going to create yet another column which represents the radius of a point
+       this will make your data points linearly separable
+'''
+r = np.zeros((N,1)) # creating a N size and 1 dimension of numpy array
+#manually calculate the radiuses
+for i in range(N):
+    r[i] = np.sqrt(X[i,:].dot(X[i,:]))
+#Now ehen I do my concatenation the ones and the radiuses and It's all togeather
+#axis=1 -> adding ones npArray, r npArray and X npArray by column 
+Xb = np.concatenate((ones,r,X), axis = 1)
+#Randomely initialize the weights
+w = np.random.rand(D+2)
+
+z = Xb.dot(w)
+
+def sigmoid(z):
+    return 1/(1+np.exp(-z))
+
+Y = sigmoid(z)
+
+#create a function to calcualte the cross entropy
+def cross_entropy(T,Y):
+    E=0
+    #sum over each individual cross entropy error for each sample
+    for i in range(N):
+        if T[i] == 1:
+            E -= np.log(Y[i])
+        else:
+            E-= np.log(1-Y[i])
+    return E
+
+#set the learning rate to 0.0001
+learning_rate = 0.0001
+
+#array to hold the errors
+error = []
+#running for loop for 5000 epox
+'''
+In general you will have to experiment a little bit to find the right number for these values or you could use something like cross-validation
+'''
+for i in range(5000):
+    #keep track of cross entropy so we can see how it evolves over time
+    e = cross_entropy(T,Y)
+    error.append(e)
+    #print the cross_entropy every 100 times
+    if i % 100 == 0:
+        print(f"Cross_entropy error function : {e}")
+
+    # using gradient with L2 regularization to find the optimal weights for the entropy function
+    # L2 penalty here is 0.01 and L2 regularization is 0.01*w
+    w+=learning_rate * (np.dot((T-Y).T, Xb) - 0.01*w)
+    #re-calculating the output
+    Y = sigmoid(Xb.dot(w))
+
+#plot the entropy error as it evolve over time in the pyplot graph
+plt.plot(error)
+plt.title("Cross-entropy")
+plt.show()
+
+print(f"Final weights : {w}")
+#when we are classifying we are actually rounding the output from the sigmoid function here in this case it's Y
+print(f"Final classification rate : {1-np.abs(T-np.round(Y)).sum() / N}")
+
+'''
+    bias             radius        x coordinate    y coordinate
+[-1.19218610e+01  1.60701810e+00  1.07760033e-03  9.60229312e-03]
+The output of this is that our x and y are pretty close to zero
+Classification doesn't really depend on the x and y coordinate at all is what this model has found
+This model has found that the classification depends on the bias
+here the radius that we'v put in the small radius and we have automatically have this bias to be -ve and that pushes the classification
+towards zero
+If the radius is bigger then it pushes the classification towards one
+So that's how you can solve the donut problem
+'''
