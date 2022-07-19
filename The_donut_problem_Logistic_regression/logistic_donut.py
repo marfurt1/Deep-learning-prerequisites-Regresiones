@@ -67,7 +67,8 @@ z = Xb.dot(w)
 
 def sigmoid(z):
     return 1/(1+np.exp(-z))
-
+    
+#calculating the output
 Y = sigmoid(z)
 
 #create a function to calcualte the cross entropy

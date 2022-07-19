@@ -66,3 +66,4 @@ So that's how you can solve the donut problem
 
 ### XOR problem
 ![](util_pictures_for_explaination_README/Logistic_regression_XOr_problem.png)
+#### Here you can see that there are 4 data points 2 are from class yellow and 2 are from class purple. So the trouble using logistic regression here is that you can't really find the line that will give you a perfect classification
