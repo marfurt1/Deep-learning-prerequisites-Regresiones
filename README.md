@@ -14,7 +14,7 @@ Code->
        #manually calculate the radiuses
        for i in range(N):
            r[i] = np.sqrt(X[i,:].dot(X[i,:]))
-       #Now ehen I do my concatenation the ones and the radiuses and It's all togeather
+       #Now then I do my concatenation the ones and the radiuses and It's all togeather
        #axis=1 -> adding ones npArray, r npArray and X npArray by column
        Xb = np.concatenate((ones,r,X), axis = 1)
 ```

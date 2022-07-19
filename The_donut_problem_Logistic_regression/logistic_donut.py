@@ -57,8 +57,8 @@ r = np.zeros((N,1)) # creating a N size and 1 dimension of numpy array
 #manually calculate the radiuses
 for i in range(N):
     r[i] = np.sqrt(X[i,:].dot(X[i,:]))
-#Now ehen I do my concatenation the ones and the radiuses and It's all togeather
-#axis=1 -> adding ones npArray, r npArray and X npArray by column 
+#Now then I do my concatenation the ones and the radiuses and It's all togeather
+#axis=1 -> adding ones npArray, r npArray and X npArray by column
 Xb = np.concatenate((ones,r,X), axis = 1)
 #Randomely initialize the weights
 w = np.random.rand(D+2)
